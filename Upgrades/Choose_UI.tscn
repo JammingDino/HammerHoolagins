@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqig22yujwljh"]
+
+[ext_resource type="Script" path="res://Upgrades/Choose_UI.gd" id="1_awpd7"]
+
+[node name="Choose_UI" type="Node2D"]
+script = ExtResource("1_awpd7")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 524.0
+offset_top = 78.0
+offset_right = 586.0
+offset_bottom = 104.0
+text = "Player 1"
+
+[node name="Card_Holder" type="HBoxContainer" parent="."]
+offset_left = 150.0
+offset_top = 150.0
+offset_right = 964.0
+offset_bottom = 550.0
+theme_override_constants/separation = 16
+alignment = 1
+metadata/_edit_use_anchors_ = true

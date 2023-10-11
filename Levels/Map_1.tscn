@@ -1,0 +1,114 @@
+[gd_scene load_steps=16 format=3 uid="uid://dt1sa2rqgeq4p"]
+
+[ext_resource type="Script" path="res://Levels/Resources/Map_Script.gd" id="1_c7xyu"]
+[ext_resource type="ArrayMesh" uid="uid://ktn2qd7rdpt0" path="res://Levels/Resources/1_map.obj" id="1_eopgb"]
+[ext_resource type="Shader" path="res://Levels/Resources/water.gdshader" id="2_kuprk"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_2xuhm"]
+data = PackedVector3Array(-99.6034, 99.6034, 99.6034, -99.6034, 99.6034, -99.6034, -96.3965, 99.6034, 96.3965, -96.3965, 99.6034, 96.3965, -99.6034, 99.6034, -99.6034, -96.3965, 99.6034, -96.3965, 99.6034, 99.6034, 99.6034, 99.6034, 94.2383, 99.6034, -99.6034, 99.6034, 99.6034, -99.6034, 99.6034, 99.6034, 99.6034, 94.2383, 99.6034, -99.6034, 94.2383, 99.6034, -99.6034, 99.6034, 99.6034, -99.6034, 94.2383, 99.6034, -99.6034, 99.6034, -99.6034, -99.6034, 99.6034, -99.6034, -99.6034, 94.2383, 99.6034, -99.6034, 94.2383, -99.6034, 99.6034, -99.6034, -99.6034, -99.6034, -99.6034, -99.6034, 99.6034, -99.6034, 99.6034, 99.6034, -99.6034, 99.6034, -99.6034, -99.6034, -99.6034, -99.6034, -99.6034, 99.6034, 99.6034, 99.6034, -99.6034, 99.6034, 94.2383, -99.6034, 99.6034, 99.6034, 99.6034, 99.6034, 99.6034, 99.6034, 99.6034, 94.2383, -99.6034, 99.6034, 94.2383, 99.6034, -99.6034, 99.6034, -99.6034, -99.6034, 94.2383, -99.6034, 99.6034, 99.6034, -99.6034, 99.6034, 99.6034, -99.6034, -99.6034, 94.2383, -99.6034, 99.6034, 94.2383, -99.6034, 96.3965, 99.6034, -96.3965, 96.3965, 99.6034, 96.3965, 96.3965, 97.116, -96.3965, 96.3965, 97.116, -96.3965, 96.3965, 99.6034, 96.3965, 96.3965, 97.116, 96.3965, 99.6034, 99.6034, -99.6034, 99.6034, 99.6034, 99.6034, 96.3965, 99.6034, -96.3965, 96.3965, 99.6034, -96.3965, 99.6034, 99.6034, 99.6034, 96.3965, 99.6034, 96.3965, -99.6034, 99.6034, -99.6034, 99.6034, 99.6034, -99.6034, -96.3965, 99.6034, -96.3965, -96.3965, 99.6034, -96.3965, 99.6034, 99.6034, -99.6034, 96.3965, 99.6034, -96.3965, 99.6034, 99.6034, 99.6034, -99.6034, 99.6034, 99.6034, 96.3965, 99.6034, 96.3965, 96.3965, 99.6034, 96.3965, -99.6034, 99.6034, 99.6034, -96.3965, 99.6034, 96.3965, -96.3965, 97.116, -96.3965, 96.3965, 97.116, -96.3965, -96.3965, 97.116, 96.3965, -96.3965, 97.116, 96.3965, 96.3965, 97.116, -96.3965, 96.3965, 97.116, 96.3965, -96.3965, 99.6034, 96.3965, -96.3965, 99.6034, -96.3965, -96.3965, 97.116, 96.3965, -96.3965, 97.116, 96.3965, -96.3965, 99.6034, -96.3965, -96.3965, 97.116, -96.3965, 96.3965, 99.6034, 96.3965, -96.3965, 99.6034, 96.3965, 96.3965, 97.116, 96.3965, 96.3965, 97.116, 96.3965, -96.3965, 99.6034, 96.3965, -96.3965, 97.116, 96.3965, -96.3965, 99.6034, -96.3965, 96.3965, 99.6034, -96.3965, -96.3965, 97.116, -96.3965, -96.3965, 97.116, -96.3965, 96.3965, 99.6034, -96.3965, 96.3965, 97.116, -96.3965, 99.6034, 89.4085, 99.6034, -99.6034, 89.4085, 99.6034, 96.9211, 89.4735, 96.9211, 96.9211, 89.4735, 96.9211, -99.6034, 89.4085, 99.6034, -96.9211, 89.4735, 96.9211, 99.6034, 89.4085, -99.6034, 99.6034, 89.4085, 99.6034, 96.9211, 89.4735, -96.9211, 96.9211, 89.4735, -96.9211, 99.6034, 89.4085, 99.6034, 96.9211, 89.4735, 96.9211, 99.6034, 94.2383, 99.6034, 99.6034, 94.2383, -99.6034, 96.9211, 94.1733, 96.9211, 96.9211, 94.1733, 96.9211, 99.6034, 94.2383, -99.6034, 96.9211, 94.1733, -96.9211, -99.6034, 94.2383, 99.6034, 99.6034, 94.2383, 99.6034, -96.9211, 94.1733, 96.9211, -96.9211, 94.1733, 96.9211, 99.6034, 94.2383, 99.6034, 96.9211, 94.1733, 96.9211, 99.6034, 89.4085, 99.6034, 99.6034, -99.6034, 99.6034, -99.6034, 89.4085, 99.6034, -99.6034, 89.4085, 99.6034, 99.6034, -99.6034, 99.6034, -99.6034, -99.6034, 99.6034, -99.6034, 89.4085, 99.6034, -99.6034, -99.6034, 99.6034, -99.6034, 89.4085, -99.6034, -99.6034, 89.4085, -99.6034, -99.6034, -99.6034, 99.6034, -99.6034, -99.6034, -99.6034, 99.6034, 89.4085, -99.6034, 99.6034, -99.6034, -99.6034, 99.6034, 89.4085, 99.6034, 99.6034, 89.4085, 99.6034, 99.6034, -99.6034, -99.6034, 99.6034, -99.6034, 99.6034, -99.6034, 89.4085, -99.6034, -99.6034, -99.6034, -99.6034, 99.6034, 89.4085, -99.6034, 99.6034, 89.4085, -99.6034, -99.6034, -99.6034, -99.6034, 99.6034, -99.6034, -99.6034, -96.9211, 94.1733, -96.9211, -96.9211, 89.4735, -96.9211, 96.9211, 94.1733, -96.9211, 96.9211, 94.1733, -96.9211, -96.9211, 89.4735, -96.9211, 96.9211, 89.4735, -96.9211, 96.9211, 94.1733, -96.9211, 96.9211, 89.4735, -96.9211, 96.9211, 94.1733, 96.9211, 96.9211, 94.1733, 96.9211, 96.9211, 89.4735, -96.9211, 96.9211, 89.4735, 96.9211, -96.9211, 94.1733, 96.9211, -96.9211, 89.4735, 96.9211, -96.9211, 94.1733, -96.9211, -96.9211, 94.1733, -96.9211, -96.9211, 89.4735, 96.9211, -96.9211, 89.4735, -96.9211, 96.9211, 94.1733, 96.9211, 96.9211, 89.4735, 96.9211, -96.9211, 94.1733, 96.9211, -96.9211, 94.1733, 96.9211, 96.9211, 89.4735, 96.9211, -96.9211, 89.4735, 96.9211, -99.6034, 94.2383, -99.6034, -99.6034, 94.2383, 99.6034, -96.9211, 94.1733, -96.9211, -96.9211, 94.1733, -96.9211, -99.6034, 94.2383, 99.6034, -96.9211, 94.1733, 96.9211, -99.6034, 89.4085, -99.6034, 99.6034, 89.4085, -99.6034, -96.9211, 89.4735, -96.9211, -96.9211, 89.4735, -96.9211, 99.6034, 89.4085, -99.6034, 96.9211, 89.4735, -96.9211, 99.6034, 94.2383, -99.6034, -99.6034, 94.2383, -99.6034, 96.9211, 94.1733, -96.9211, 96.9211, 94.1733, -96.9211, -99.6034, 94.2383, -99.6034, -96.9211, 94.1733, -96.9211, -99.6034, 89.4085, 99.6034, -99.6034, 89.4085, -99.6034, -96.9211, 89.4735, 96.9211, -96.9211, 89.4735, 96.9211, -99.6034, 89.4085, -99.6034, -96.9211, 89.4735, -96.9211)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qy37a"]
+sky_top_color = Color(0.247059, 0.294118, 0.356863, 1)
+sky_horizon_color = Color(0.435294, 0.443137, 0.454902, 1)
+ground_horizon_color = Color(0.282353, 0.286275, 0.294118, 1)
+
+[sub_resource type="Sky" id="Sky_x8a54"]
+sky_material = SubResource("ProceduralSkyMaterial_qy37a")
+
+[sub_resource type="Environment" id="Environment_iipxl"]
+background_mode = 2
+sky = SubResource("Sky_x8a54")
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+glow_enabled = true
+glow_normalized = true
+glow_bloom = 0.25
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rohyf"]
+lightmap_size_hint = Vector2i(22, 12)
+size = Vector2(4, 2)
+subdivide_width = 40
+subdivide_depth = 20
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nq4xf"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8x65u"]
+in_3d_space = true
+seamless = true
+as_normal_map = true
+bump_strength = 2.0
+noise = SubResource("FastNoiseLite_nq4xf")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_najdf"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_olxn5"]
+in_3d_space = true
+seamless = true
+as_normal_map = true
+bump_strength = 1.5
+noise = SubResource("FastNoiseLite_najdf")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yw3iq"]
+domain_warp_enabled = true
+domain_warp_fractal_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_00xeu"]
+seamless = true
+noise = SubResource("FastNoiseLite_yw3iq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8bkpf"]
+render_priority = 0
+shader = ExtResource("2_kuprk")
+shader_parameter/albedo = Color(0, 0.32, 0.43, 1)
+shader_parameter/albedo2 = Color(0, 0.58, 0.76, 1)
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.03
+shader_parameter/wave_direction = Vector2(2, 0)
+shader_parameter/wave_direction2 = Vector2(0, 1)
+shader_parameter/time_sclae = 0.025
+shader_parameter/noise_scale = 13.213
+shader_parameter/height_scale = 0.643
+shader_parameter/colour_deep = null
+shader_parameter/colour_shallow = Color(0, 0.47, 0.76, 1)
+shader_parameter/beers_law = 2.0
+shader_parameter/depth_offset = -0.75
+shader_parameter/edge_scale = 0.65
+shader_parameter/near = 1.0
+shader_parameter/far = 100.0
+shader_parameter/edge_colour = Color(1, 1, 1, 1)
+shader_parameter/wave = SubResource("NoiseTexture2D_00xeu")
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_8x65u")
+shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_olxn5")
+
+[node name="Map_1" type="Node3D"]
+script = ExtResource("1_c7xyu")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 24.106, 0)
+current = true
+
+[node name="Level" type="StaticBody3D" parent="."]
+
+[node name="Map" type="MeshInstance3D" parent="Level"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = ExtResource("1_eopgb")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_2xuhm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Level"]
+transform = Transform3D(0.670789, 0.436097, -0.599884, -0.223215, 0.890062, 0.397448, 0.70726, -0.132701, 0.694387, 0, 0.951441, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Level"]
+environment = SubResource("Environment_iipxl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level"]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 8.35833, 0)
+visible = false
+mesh = SubResource("PlaneMesh_rohyf")
+surface_material_override/0 = SubResource("ShaderMaterial_8bkpf")
