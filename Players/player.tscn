@@ -1,0 +1,584 @@
+[gd_scene load_steps=47 format=3 uid="uid://bn8bpajvb7nlf"]
+
+[ext_resource type="Script" path="res://Players/Player.gd" id="1_6u8kl"]
+[ext_resource type="Shader" uid="uid://cwo5tmdwjit57" path="res://Players/Assets/Shaders/Fire.tres" id="2_1kwrj"]
+[ext_resource type="ArrayMesh" uid="uid://cn3k5c6qyci8e" path="res://Players/Assets/Hammer_1.obj" id="2_soh4n"]
+[ext_resource type="Texture2D" uid="uid://258b7tjvjaub" path="res://Players/Assets/GAP_Fire_Textures/Flame01.png" id="3_1vukg"]
+[ext_resource type="Texture2D" uid="uid://bkatm1pphnm6q" path="res://Players/Assets/GAP_Fire_Textures/Voronoi01.png" id="3_5fp17"]
+[ext_resource type="Shader" uid="uid://cjd4e8nd4nvlb" path="res://Players/Assets/Shaders/SimpleParticles.tres" id="5_ogmex"]
+[ext_resource type="Texture2D" uid="uid://ci0pax1yokpjc" path="res://Players/Assets/GAP_Fire_Textures/Flare00.PNG" id="6_4pug0"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_rnftb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v38gx"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_03hcg"]
+radius = 0.1
+height = 0.2
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gp2du"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_v46u8"]
+in_3d_space = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_gp2du")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1pkco"]
+metallic = 0.24
+roughness = 0.49
+emission_enabled = true
+emission = Color(1, 0.690196, 0, 1)
+emission_energy_multiplier = 1.98
+normal_enabled = true
+normal_scale = 2.94
+normal_texture = SubResource("NoiseTexture2D_v46u8")
+
+[sub_resource type="BoxMesh" id="BoxMesh_1kcql"]
+size = Vector3(1, 0.1, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_86g7b"]
+shading_mode = 0
+albedo_color = Color(1, 0, 0.0117647, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cmb38"]
+shading_mode = 0
+albedo_color = Color(0.470588, 0.00392157, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l27v7"]
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxruv"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_4idu7"]
+material = SubResource("StandardMaterial3D_sxruv")
+radius = 0.02
+height = 0.1
+radial_segments = 12
+rings = 8
+
+[sub_resource type="Curve" id="Curve_tvlbv"]
+_data = [Vector2(0.00399088, 0.997627), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.30627, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_wjp4f"]
+colors = PackedColorArray(1, 2, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ytljg"]
+render_priority = 0
+shader = ExtResource("2_1kwrj")
+shader_parameter/DissolveTiling = Vector2(0.25, 0.2)
+shader_parameter/DissolveSpeed = Vector2(0, 0.2)
+shader_parameter/DissolveAmount = 0.67
+shader_parameter/MainTex = ExtResource("3_1vukg")
+shader_parameter/DissolveTex = ExtResource("3_5fp17")
+
+[sub_resource type="Curve" id="Curve_aonjo"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0909091, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_eru31"]
+curve = SubResource("Curve_aonjo")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kn1gn"]
+emission_shape = 1
+emission_sphere_radius = 0.2
+gravity = Vector3(0, 5, 0)
+damping_min = 0.5
+damping_max = 1.0
+angle_min = -360.0
+angle_max = 360.0
+scale_min = 0.75
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_eru31")
+color = Color(4, 1.25, 0.66, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_1fakh"]
+
+[sub_resource type="Gradient" id="Gradient_lsux6"]
+offsets = PackedFloat32Array(0, 0.227642, 0.487805, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4qbeg"]
+gradient = SubResource("Gradient_lsux6")
+
+[sub_resource type="Curve" id="Curve_liwrp"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.214286, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_tqbl3"]
+curve = SubResource("Curve_liwrp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p8lsm"]
+emission_shape = 1
+emission_sphere_radius = 0.3
+gravity = Vector3(0, 5, 0)
+damping_min = 0.5
+damping_max = 1.0
+angle_min = -360.0
+angle_max = 360.0
+scale_min = 1.5
+scale_max = 2.5
+scale_curve = SubResource("CurveTexture_tqbl3")
+color = Color(0, 0, 0, 1)
+color_ramp = SubResource("GradientTexture1D_4qbeg")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u4g2u"]
+render_priority = 0
+shader = ExtResource("5_ogmex")
+shader_parameter/MainTex = ExtResource("6_4pug0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_68nsi"]
+emission_shape = 1
+emission_sphere_radius = 0.6
+gravity = Vector3(0, 4, 0)
+scale_min = 0.01
+scale_max = 0.12
+color = Color(1, 1, 0.623529, 1)
+turbulence_enabled = true
+turbulence_noise_scale = 5.0
+turbulence_influence_min = 0.05
+turbulence_influence_max = 0.3
+
+[sub_resource type="QuadMesh" id="QuadMesh_sxhrl"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8hp8p"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ltorg"]
+frequency = 0.006
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jtla4"]
+in_3d_space = true
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_ltorg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tua6u"]
+albedo_color = Color(0.380392, 0.380392, 0.380392, 1)
+metallic = 0.79
+roughness = 0.55
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_jtla4")
+backlight = Color(1, 1, 1, 1)
+uv1_triplanar = true
+grow_amount = -0.005
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_txvag"]
+size = Vector3(0.994135, 1, 2.08409)
+
+[sub_resource type="Animation" id="Animation_6evvj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hands:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.846509, 0, 0.513498)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hands:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0.0433889)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hands/Attack_box/CollisionShape3D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_w2ycu"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hands:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.846509, 0, 0.513498), Vector3(-0.963754, 0, 0.513498), Vector3(-0.963754, 0, 0.42404), Vector3(-0.963754, 0, 0.535841), Vector3(-0.964, 0.05, 0.55), Vector3(-0.846509, 0, 0.513498)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hands:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.0226893), Vector3(-0.0244346, 0, 0.0296706), Vector3(-0.0244346, 0.00174533, -0.0279253), Vector3(0.010472, 0.0750492, 0.0139626), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.10821, 0, 0.0488692), Vector3(0, 0, 0), Vector3(0.0523599, 0, -0.0523599)]
+}
+
+[sub_resource type="Animation" id="Animation_1km6i"]
+resource_name = "smack"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hands:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.45, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1.28325, 0.109378, 0.182643), Vector3(0.493102, -0.118413, -0.18546), Vector3(0.415514, 0.15111, -0.00328523), Vector3(0.938161, 0.174841, 0.0333142), Vector3(1.53021, 1.89828, 1.76987), Vector3(1.28325, 0.109378, 0.182643)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hands:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.45, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.846509, 0, 0.513498), Vector3(0.00158057, 1.83712, 0.608775), Vector3(0.0798145, 1.05486, 1.33164), Vector3(0.109477, -0.0829563, 1.6057), Vector3(-0.846509, 0, 0.513498)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.490857, -0.0145012, 0.0578792), Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hands/Attack_box/CollisionShape3D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_y7ijc"]
+resource_name = "swing"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hands:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(2.14355, 1, 1, 1, 2.14355),
+"update": 0,
+"values": [Vector3(0.21519, -0.487581, 1.18154), Vector3(0.479237, 0.348641, 1.39279), Vector3(0.036764, 1.56679, 1.62607), Vector3(-0.210494, 2.82918, 1.74843), Vector3(-0.455531, 3.53255, 1.35787)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hands:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(2.14355, 1, 1, 1, 2.14355),
+"update": 0,
+"values": [Vector3(-1.013, 0, -0.358), Vector3(-1.13144, 0, -0.181866), Vector3(-0.216817, -0.0503087, 1.25806), Vector3(1.131, 0, -0.182), Vector3(1.01323, 0, -0.357972)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 0.378929, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.1, 0), Vector3(0, 0.1, -0.134161), Vector3(0, 0, 0.1), Vector3(0, 0.1, -0.134161), Vector3(0, 0.1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 0.500001, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.190573, 0, 0), Vector3(0.169943, 0, 0), Vector3(-0.190573, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hands/Attack_box/CollisionShape3D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_eyu7r"]
+resource_name = "walk"
+loop_mode = 1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hands:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1.50098, 0, 0.0436332), Vector3(1.19514, 1.01113, 1.04462), Vector3(1.2414, 1.29117, 1.34268), Vector3(1.50971, 3.08574, 2.98451)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hands:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.846509, -0.331232, 0.513498), Vector3(-1.00253, -0.196784, 0.513498), Vector3(-0.93667, -0.404972, 0.560079), Vector3(-0.93667, -0.373602, 0.366691), Vector3(-0.89159, -0.229827, 0.386749)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.61),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.113446, 0.15708), Vector3(0, 0.715585, -0.15708)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.1, 0), Vector3(0, 0, 0), Vector3(0, 0.1, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k1bit"]
+_data = {
+"RESET": SubResource("Animation_6evvj"),
+"idle": SubResource("Animation_w2ycu"),
+"smack": SubResource("Animation_1km6i"),
+"swing": SubResource("Animation_y7ijc"),
+"walk": SubResource("Animation_eyu7r")
+}
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2ldux"]
+radius = 0.6
+height = 2.2
+
+[node name="Player" type="CharacterBody3D" groups=["player"]]
+script = ExtResource("1_6u8kl")
+
+[node name="Rotation" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0209439, 0, 0)
+target_position = Vector3(0, 0, 2)
+
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+mesh = SubResource("CapsuleMesh_rnftb")
+surface_material_override/0 = SubResource("StandardMaterial3D_v38gx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.212895, 0.540333, 0.433889)
+mesh = SubResource("SphereMesh_03hcg")
+surface_material_override/0 = SubResource("StandardMaterial3D_1pkco")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171931, 0.543017, 0.426383)
+mesh = SubResource("SphereMesh_03hcg")
+skeleton = NodePath("../MeshInstance3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_1pkco")
+
+[node name="3D_UI" type="Node3D" parent="Body"]
+transform = Transform3D(0.999895, 0.0143605, 0.0018538, -0.0140255, 0.992376, -0.122445, -0.00359806, 0.122406, 0.992474, 0.016784, 1.15985, 0.143064)
+
+[node name="Life" type="MeshInstance3D" parent="Body/3D_UI"]
+mesh = SubResource("BoxMesh_1kcql")
+surface_material_override/0 = SubResource("StandardMaterial3D_86g7b")
+
+[node name="Max_Life" type="MeshInstance3D" parent="Body/3D_UI"]
+transform = Transform3D(0.98, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
+mesh = SubResource("BoxMesh_1kcql")
+surface_material_override/0 = SubResource("StandardMaterial3D_cmb38")
+
+[node name="Particles" type="Node3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+
+[node name="poison_particles" type="CPUParticles3D" parent="Body/Particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54922, 0)
+material_override = SubResource("StandardMaterial3D_l27v7")
+emitting = false
+amount = 16
+lifetime_randomness = 0.4
+mesh = SubResource("SphereMesh_4idu7")
+emission_shape = 3
+emission_box_extents = Vector3(1, 0.1, 1)
+direction = Vector3(0, 1, 0)
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.5
+damping_min = 1.5
+damping_max = 2.5
+scale_amount_min = 2.5
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_tvlbv")
+color_ramp = SubResource("Gradient_wjp4f")
+
+[node name="Flame" type="GPUParticles3D" parent="Body/Particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.757622, 0)
+material_override = SubResource("ShaderMaterial_ytljg")
+emitting = false
+amount = 40
+lifetime = 1.2
+visibility_aabb = AABB(-1.1464, -1.13075, -1.14375, 2.27895, 5.2234, 2.29405)
+process_material = SubResource("ParticleProcessMaterial_kn1gn")
+draw_pass_1 = SubResource("QuadMesh_1fakh")
+
+[node name="Smoke" type="GPUParticles3D" parent="Body/Particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.757622, 0)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_ytljg")
+emitting = false
+amount = 30
+lifetime = 2.5
+visibility_aabb = AABB(-1.14784, -1.25821, -1.22281, 2.42718, 15.9087, 2.42706)
+process_material = SubResource("ParticleProcessMaterial_p8lsm")
+draw_pass_1 = SubResource("QuadMesh_1fakh")
+
+[node name="Embers" type="GPUParticles3D" parent="Body/Particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.757622, 0)
+sorting_offset = 1.0
+material_override = SubResource("ShaderMaterial_u4g2u")
+emitting = false
+amount = 50
+lifetime = 2.0
+visibility_aabb = AABB(-2.85812, -1.83307, -4.66142, 6.91215, 8.44074, 8.32695)
+process_material = SubResource("ParticleProcessMaterial_68nsi")
+draw_pass_1 = SubResource("QuadMesh_sxhrl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0984213, 0)
+shape = SubResource("CapsuleShape3D_8hp8p")
+
+[node name="Hands" type="Marker3D" parent="."]
+transform = Transform3D(0.999058, -0.0433753, 0, 0.0433752, 0.99906, 0, 0, 0, 1, -0.846509, 0, 0.513498)
+
+[node name="Hammer" type="MeshInstance3D" parent="Hands"]
+transform = Transform3D(0.5, -1.86265e-09, -3.72529e-09, 1.86265e-09, 0.5, 0, 3.72529e-09, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("2_soh4n")
+surface_material_override/0 = SubResource("StandardMaterial3D_tua6u")
+
+[node name="Attack_box" type="Area3D" parent="Hands" groups=["Attack_Box"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hands/Attack_box"]
+transform = Transform3D(1, -4.47035e-08, -9.31323e-10, 0, 1, 3.36149e-09, 0, -7.50879e-09, 1, -0.00386214, 0.864543, -0.0114698)
+shape = SubResource("BoxShape3D_txvag")
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_default_blend_time = 0.1
+libraries = {
+"": SubResource("AnimationLibrary_k1bit")
+}
+
+[node name="Lunge_timer" type="Timer" parent="."]
+wait_time = 0.3
+
+[node name="damage_over_time_timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Fire_spread" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fire_spread"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0991313, 0)
+shape = SubResource("CapsuleShape3D_2ldux")
+
+[connection signal="body_entered" from="Hands/Attack_box" to="." method="_on_attack_box_body_entered"]
+[connection signal="timeout" from="Lunge_timer" to="." method="_on_lunge_timer_timeout"]
+[connection signal="timeout" from="damage_over_time_timer" to="." method="_on_damage_over_time_timer_timeout"]
+[connection signal="body_entered" from="Fire_spread" to="." method="_on_fire_spread_body_entered"]

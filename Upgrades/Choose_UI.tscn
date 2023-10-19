@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqig22yujwljh"]
+
+[ext_resource type="Script" path="res://Upgrades/Choose_UI.gd" id="1_awpd7"]
+
+[node name="Choose_UI" type="Node2D"]
+script = ExtResource("1_awpd7")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 294.0
+offset_top = 311.0
+offset_right = 356.0
+offset_bottom = 337.0
+text = "Player 1"
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(325, 324)
+scale = Vector2(0.63, 0.63)

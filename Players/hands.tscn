@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://djan7qiw6thy6"]
+
+[ext_resource type="ArrayMesh" uid="uid://cn3k5c6qyci8e" path="res://Players/Assets/Hammer_1.obj" id="1_sww2a"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ltorg"]
+frequency = 0.006
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jtla4"]
+in_3d_space = true
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_ltorg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tua6u"]
+albedo_color = Color(0.380392, 0.380392, 0.380392, 1)
+metallic = 0.79
+roughness = 0.55
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_jtla4")
+backlight = Color(1, 1, 1, 1)
+uv1_triplanar = true
+grow_amount = -0.005
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_txvag"]
+size = Vector3(0.994135, 1, 1.3949)
+
+[node name="Hands" type="Marker3D"]
+transform = Transform3D(0.996503, -0.0776068, 0.0309578, 0.05151, 0.278883, -0.958943, 0.0657867, 0.957185, 0.281905, -0.846509, 0, 0.513498)
+
+[node name="Hammer" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, -1.86265e-09, -3.72529e-09, 1.86265e-09, 0.5, 0, 3.72529e-09, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("1_sww2a")
+surface_material_override/0 = SubResource("StandardMaterial3D_tua6u")
+
+[node name="Attack_box" type="Area3D" parent="." groups=["Attack_Box"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Attack_box"]
+transform = Transform3D(1, -4.47035e-08, -9.31323e-10, 0, 1, 3.36149e-09, 0, -7.50879e-09, 1, -0.00386214, 0.864543, -0.0114698)
+shape = SubResource("BoxShape3D_txvag")
+disabled = true

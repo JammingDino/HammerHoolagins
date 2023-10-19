@@ -1,0 +1,236 @@
+[gd_scene load_steps=34 format=3 uid="uid://dt1sa2rqgeq4p"]
+
+[ext_resource type="Script" path="res://Levels/Resources/Map_Script.gd" id="1_c7xyu"]
+[ext_resource type="ArrayMesh" uid="uid://ktn2qd7rdpt0" path="res://Levels/Resources/1_map.obj" id="1_eopgb"]
+[ext_resource type="Shader" path="res://Levels/Resources/water.gdshader" id="2_kuprk"]
+[ext_resource type="Shader" uid="uid://cwo5tmdwjit57" path="res://Players/Assets/Shaders/Fire.tres" id="4_u17bw"]
+[ext_resource type="Texture2D" uid="uid://bkatm1pphnm6q" path="res://Players/Assets/GAP_Fire_Textures/Voronoi01.png" id="5_i5fkl"]
+[ext_resource type="Texture2D" uid="uid://258b7tjvjaub" path="res://Players/Assets/GAP_Fire_Textures/Flame01.png" id="5_oevka"]
+[ext_resource type="Shader" uid="uid://cjd4e8nd4nvlb" path="res://Players/Assets/Shaders/SimpleParticles.tres" id="7_0gvf8"]
+[ext_resource type="Texture2D" uid="uid://ci0pax1yokpjc" path="res://Players/Assets/GAP_Fire_Textures/Flare00.PNG" id="8_bu3p3"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_2xuhm"]
+data = PackedVector3Array(-99.6034, 99.6034, 99.6034, -99.6034, 99.6034, -99.6034, -96.3965, 99.6034, 96.3965, -96.3965, 99.6034, 96.3965, -99.6034, 99.6034, -99.6034, -96.3965, 99.6034, -96.3965, 99.6034, 99.6034, 99.6034, 99.6034, 94.2383, 99.6034, -99.6034, 99.6034, 99.6034, -99.6034, 99.6034, 99.6034, 99.6034, 94.2383, 99.6034, -99.6034, 94.2383, 99.6034, -99.6034, 99.6034, 99.6034, -99.6034, 94.2383, 99.6034, -99.6034, 99.6034, -99.6034, -99.6034, 99.6034, -99.6034, -99.6034, 94.2383, 99.6034, -99.6034, 94.2383, -99.6034, 99.6034, -99.6034, -99.6034, -99.6034, -99.6034, -99.6034, 99.6034, -99.6034, 99.6034, 99.6034, -99.6034, 99.6034, -99.6034, -99.6034, -99.6034, -99.6034, -99.6034, 99.6034, 99.6034, 99.6034, -99.6034, 99.6034, 94.2383, -99.6034, 99.6034, 99.6034, 99.6034, 99.6034, 99.6034, 99.6034, 99.6034, 94.2383, -99.6034, 99.6034, 94.2383, 99.6034, -99.6034, 99.6034, -99.6034, -99.6034, 94.2383, -99.6034, 99.6034, 99.6034, -99.6034, 99.6034, 99.6034, -99.6034, -99.6034, 94.2383, -99.6034, 99.6034, 94.2383, -99.6034, 96.3965, 99.6034, -96.3965, 96.3965, 99.6034, 96.3965, 96.3965, 97.116, -96.3965, 96.3965, 97.116, -96.3965, 96.3965, 99.6034, 96.3965, 96.3965, 97.116, 96.3965, 99.6034, 99.6034, -99.6034, 99.6034, 99.6034, 99.6034, 96.3965, 99.6034, -96.3965, 96.3965, 99.6034, -96.3965, 99.6034, 99.6034, 99.6034, 96.3965, 99.6034, 96.3965, -99.6034, 99.6034, -99.6034, 99.6034, 99.6034, -99.6034, -96.3965, 99.6034, -96.3965, -96.3965, 99.6034, -96.3965, 99.6034, 99.6034, -99.6034, 96.3965, 99.6034, -96.3965, 99.6034, 99.6034, 99.6034, -99.6034, 99.6034, 99.6034, 96.3965, 99.6034, 96.3965, 96.3965, 99.6034, 96.3965, -99.6034, 99.6034, 99.6034, -96.3965, 99.6034, 96.3965, -96.3965, 97.116, -96.3965, 96.3965, 97.116, -96.3965, -96.3965, 97.116, 96.3965, -96.3965, 97.116, 96.3965, 96.3965, 97.116, -96.3965, 96.3965, 97.116, 96.3965, -96.3965, 99.6034, 96.3965, -96.3965, 99.6034, -96.3965, -96.3965, 97.116, 96.3965, -96.3965, 97.116, 96.3965, -96.3965, 99.6034, -96.3965, -96.3965, 97.116, -96.3965, 96.3965, 99.6034, 96.3965, -96.3965, 99.6034, 96.3965, 96.3965, 97.116, 96.3965, 96.3965, 97.116, 96.3965, -96.3965, 99.6034, 96.3965, -96.3965, 97.116, 96.3965, -96.3965, 99.6034, -96.3965, 96.3965, 99.6034, -96.3965, -96.3965, 97.116, -96.3965, -96.3965, 97.116, -96.3965, 96.3965, 99.6034, -96.3965, 96.3965, 97.116, -96.3965, 99.6034, 89.4085, 99.6034, -99.6034, 89.4085, 99.6034, 96.9211, 89.4735, 96.9211, 96.9211, 89.4735, 96.9211, -99.6034, 89.4085, 99.6034, -96.9211, 89.4735, 96.9211, 99.6034, 89.4085, -99.6034, 99.6034, 89.4085, 99.6034, 96.9211, 89.4735, -96.9211, 96.9211, 89.4735, -96.9211, 99.6034, 89.4085, 99.6034, 96.9211, 89.4735, 96.9211, 99.6034, 94.2383, 99.6034, 99.6034, 94.2383, -99.6034, 96.9211, 94.1733, 96.9211, 96.9211, 94.1733, 96.9211, 99.6034, 94.2383, -99.6034, 96.9211, 94.1733, -96.9211, -99.6034, 94.2383, 99.6034, 99.6034, 94.2383, 99.6034, -96.9211, 94.1733, 96.9211, -96.9211, 94.1733, 96.9211, 99.6034, 94.2383, 99.6034, 96.9211, 94.1733, 96.9211, 99.6034, 89.4085, 99.6034, 99.6034, -99.6034, 99.6034, -99.6034, 89.4085, 99.6034, -99.6034, 89.4085, 99.6034, 99.6034, -99.6034, 99.6034, -99.6034, -99.6034, 99.6034, -99.6034, 89.4085, 99.6034, -99.6034, -99.6034, 99.6034, -99.6034, 89.4085, -99.6034, -99.6034, 89.4085, -99.6034, -99.6034, -99.6034, 99.6034, -99.6034, -99.6034, -99.6034, 99.6034, 89.4085, -99.6034, 99.6034, -99.6034, -99.6034, 99.6034, 89.4085, 99.6034, 99.6034, 89.4085, 99.6034, 99.6034, -99.6034, -99.6034, 99.6034, -99.6034, 99.6034, -99.6034, 89.4085, -99.6034, -99.6034, -99.6034, -99.6034, 99.6034, 89.4085, -99.6034, 99.6034, 89.4085, -99.6034, -99.6034, -99.6034, -99.6034, 99.6034, -99.6034, -99.6034, -96.9211, 94.1733, -96.9211, -96.9211, 89.4735, -96.9211, 96.9211, 94.1733, -96.9211, 96.9211, 94.1733, -96.9211, -96.9211, 89.4735, -96.9211, 96.9211, 89.4735, -96.9211, 96.9211, 94.1733, -96.9211, 96.9211, 89.4735, -96.9211, 96.9211, 94.1733, 96.9211, 96.9211, 94.1733, 96.9211, 96.9211, 89.4735, -96.9211, 96.9211, 89.4735, 96.9211, -96.9211, 94.1733, 96.9211, -96.9211, 89.4735, 96.9211, -96.9211, 94.1733, -96.9211, -96.9211, 94.1733, -96.9211, -96.9211, 89.4735, 96.9211, -96.9211, 89.4735, -96.9211, 96.9211, 94.1733, 96.9211, 96.9211, 89.4735, 96.9211, -96.9211, 94.1733, 96.9211, -96.9211, 94.1733, 96.9211, 96.9211, 89.4735, 96.9211, -96.9211, 89.4735, 96.9211, -99.6034, 94.2383, -99.6034, -99.6034, 94.2383, 99.6034, -96.9211, 94.1733, -96.9211, -96.9211, 94.1733, -96.9211, -99.6034, 94.2383, 99.6034, -96.9211, 94.1733, 96.9211, -99.6034, 89.4085, -99.6034, 99.6034, 89.4085, -99.6034, -96.9211, 89.4735, -96.9211, -96.9211, 89.4735, -96.9211, 99.6034, 89.4085, -99.6034, 96.9211, 89.4735, -96.9211, 99.6034, 94.2383, -99.6034, -99.6034, 94.2383, -99.6034, 96.9211, 94.1733, -96.9211, 96.9211, 94.1733, -96.9211, -99.6034, 94.2383, -99.6034, -96.9211, 94.1733, -96.9211, -99.6034, 89.4085, 99.6034, -99.6034, 89.4085, -99.6034, -96.9211, 89.4735, 96.9211, -96.9211, 89.4735, 96.9211, -99.6034, 89.4085, -99.6034, -96.9211, 89.4735, -96.9211)
+backface_collision = true
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qy37a"]
+sky_top_color = Color(0.172549, 0.207843, 0.25098, 1)
+sky_horizon_color = Color(0.215686, 0.219608, 0.227451, 1)
+ground_bottom_color = Color(0.0705882, 0.0588235, 0.0470588, 1)
+ground_horizon_color = Color(0.172549, 0.176471, 0.180392, 1)
+
+[sub_resource type="Sky" id="Sky_x8a54"]
+sky_material = SubResource("ProceduralSkyMaterial_qy37a")
+
+[sub_resource type="Environment" id="Environment_iipxl"]
+background_mode = 2
+background_energy_multiplier = 0.8
+sky = SubResource("Sky_x8a54")
+ambient_light_source = 1
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+sdfgi_read_sky_light = false
+glow_enabled = true
+glow_levels/1 = 0.5
+glow_levels/2 = 0.1
+glow_levels/3 = 0.3
+glow_levels/4 = 0.7
+glow_intensity = 0.4
+glow_strength = 0.9
+glow_blend_mode = 1
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rohyf"]
+lightmap_size_hint = Vector2i(22, 12)
+size = Vector2(4, 2)
+subdivide_width = 40
+subdivide_depth = 20
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nq4xf"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8x65u"]
+in_3d_space = true
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_nq4xf")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_d7tgj"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_olxn5"]
+in_3d_space = true
+seamless = true
+as_normal_map = true
+bump_strength = 1.5
+noise = SubResource("FastNoiseLite_d7tgj")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yw3iq"]
+domain_warp_enabled = true
+domain_warp_fractal_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_00xeu"]
+seamless = true
+noise = SubResource("FastNoiseLite_yw3iq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8bkpf"]
+render_priority = 0
+shader = ExtResource("2_kuprk")
+shader_parameter/albedo = Color(0, 0.32, 0.43, 1)
+shader_parameter/albedo2 = Color(0, 0.58, 0.76, 1)
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.03
+shader_parameter/wave_direction = Vector2(2, 0)
+shader_parameter/wave_direction2 = Vector2(0, 1)
+shader_parameter/time_sclae = 0.025
+shader_parameter/noise_scale = 13.213
+shader_parameter/height_scale = 0.643
+shader_parameter/colour_deep = null
+shader_parameter/colour_shallow = Color(0, 0.47, 0.76, 1)
+shader_parameter/beers_law = 2.0
+shader_parameter/depth_offset = -0.75
+shader_parameter/edge_scale = 0.65
+shader_parameter/near = 1.0
+shader_parameter/far = 100.0
+shader_parameter/edge_colour = Color(1, 1, 1, 1)
+shader_parameter/wave = SubResource("NoiseTexture2D_00xeu")
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_8x65u")
+shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_olxn5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c332e"]
+render_priority = 0
+shader = ExtResource("4_u17bw")
+shader_parameter/DissolveTiling = Vector2(0.25, 0.2)
+shader_parameter/DissolveSpeed = Vector2(0, 0.2)
+shader_parameter/DissolveAmount = 0.67
+shader_parameter/MainTex = ExtResource("5_oevka")
+shader_parameter/DissolveTex = ExtResource("5_i5fkl")
+
+[sub_resource type="Curve" id="Curve_te4sd"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.214286, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_tobe1"]
+curve = SubResource("Curve_te4sd")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1y61h"]
+emission_shape = 1
+emission_sphere_radius = 0.2
+gravity = Vector3(0, 5, 0)
+damping_min = 0.5
+damping_max = 1.0
+angle_min = -360.0
+angle_max = 360.0
+scale_min = 0.75
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_tobe1")
+color = Color(4, 1.25, 0.66, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_ee1n8"]
+
+[sub_resource type="Gradient" id="Gradient_jwjld"]
+offsets = PackedFloat32Array(0, 0.227642, 0.487805, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hjdpf"]
+gradient = SubResource("Gradient_jwjld")
+
+[sub_resource type="Curve" id="Curve_eblcc"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.214286, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_dy2n8"]
+curve = SubResource("Curve_eblcc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7krdl"]
+emission_shape = 1
+emission_sphere_radius = 0.3
+gravity = Vector3(0, 5, 0)
+damping_min = 0.5
+damping_max = 1.0
+angle_min = -360.0
+angle_max = 360.0
+scale_min = 1.5
+scale_max = 2.5
+scale_curve = SubResource("CurveTexture_dy2n8")
+color = Color(0, 0, 0, 1)
+color_ramp = SubResource("GradientTexture1D_hjdpf")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2v6g8"]
+render_priority = 0
+shader = ExtResource("7_0gvf8")
+shader_parameter/MainTex = ExtResource("8_bu3p3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3gvsu"]
+emission_shape = 1
+emission_sphere_radius = 0.6
+gravity = Vector3(0, 4, 0)
+scale_min = 0.01
+scale_max = 0.12
+color = Color(1, 1, 0.623529, 1)
+turbulence_enabled = true
+turbulence_noise_scale = 5.0
+turbulence_influence_min = 0.05
+turbulence_influence_max = 0.3
+
+[sub_resource type="QuadMesh" id="QuadMesh_3lo2s"]
+
+[node name="Map_1" type="Node3D"]
+script = ExtResource("1_c7xyu")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 24.106, 0)
+current = true
+
+[node name="Level" type="StaticBody3D" parent="."]
+
+[node name="Map" type="MeshInstance3D" parent="Level"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = ExtResource("1_eopgb")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level"]
+transform = Transform3D(0.1, 0, 0, 0, 0.5, 0, 0, 0, 0.1, 0, -38.846, 0)
+shape = SubResource("ConcavePolygonShape3D_2xuhm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Level"]
+transform = Transform3D(0.670789, 0.436097, -0.599884, -0.223215, 0.890062, 0.397448, 0.70726, -0.132701, 0.694387, 0, 0.951441, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Level"]
+environment = SubResource("Environment_iipxl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level"]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 6.29405, 0)
+visible = false
+mesh = SubResource("PlaneMesh_rohyf")
+surface_material_override/0 = SubResource("ShaderMaterial_8bkpf")
+
+[node name="flame_particle" type="Node3D" parent="."]
+visible = false
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="flame_particle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 0)
+material_override = SubResource("ShaderMaterial_c332e")
+amount = 20
+lifetime = 1.2
+visibility_aabb = AABB(-1.12352, -1.15028, -1.16647, 2.29595, 5.31106, 2.30012)
+process_material = SubResource("ParticleProcessMaterial_1y61h")
+draw_pass_1 = SubResource("QuadMesh_ee1n8")
+
+[node name="GPUParticles3D3" type="GPUParticles3D" parent="flame_particle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 0)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_c332e")
+amount = 20
+lifetime = 2.5
+visibility_aabb = AABB(-1.12352, -1.15028, -1.16647, 2.29595, 5.31106, 2.30012)
+process_material = SubResource("ParticleProcessMaterial_7krdl")
+draw_pass_1 = SubResource("QuadMesh_ee1n8")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="flame_particle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 0)
+sorting_offset = 1.0
+material_override = SubResource("ShaderMaterial_2v6g8")
+amount = 50
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_3gvsu")
+draw_pass_1 = SubResource("QuadMesh_3lo2s")
